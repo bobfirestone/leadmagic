@@ -1,0 +1,12 @@
+<% title "@campaign.name" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_campaign_path(@campaign) %> |
+  <%= link_to "Destroy", @campaign, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", campaigns_path %>
+</p>
