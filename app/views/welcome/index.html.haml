@@ -1,0 +1,7 @@
+%h1 Welcome#index
+%p Find me in app/views/welcome/index.html.haml
+
+-if user_signed_in?
+  =link_to "Sign Out", signout_path
+-else
+  =link_to "Create New User", new_user_registration_path
