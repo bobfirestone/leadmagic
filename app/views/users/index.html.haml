@@ -1,0 +1,20 @@
+%h1 Users#index
+
+%table
+  %tr
+    %th Name
+    %th Today
+    %th Week
+    %th Month
+
+  - for user in @users 
+    %tr
+      %td= link_to user.name, user
+      %td (Num Here)
+      %td (Num Here)
+      %td (Num Here)
+      
+-if user_signed_in?
+  =link_to "Sign Out", destroy_user_session_path
+-else
+  =link_to "Create New User", new_user_registration_path
