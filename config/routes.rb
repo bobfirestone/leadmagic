@@ -1,6 +1,4 @@
 Leadmagic::Application.routes.draw do
-  resources :campaigns
-
   resources :dashboards
 
 
