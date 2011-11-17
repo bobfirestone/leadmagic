@@ -1,0 +1,32 @@
+<% title "Campaign" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @campaign.email %>
+</p>
+<p>
+  <strong>Script:</strong>
+  <%= @campaign.script %>
+</p>
+<p>
+  <strong>Leads Count:</strong>
+  <%= @campaign.leads_count %>
+</p>
+<p>
+  <strong>Lead Price:</strong>
+  <%= @campaign.lead_price %>
+</p>
+<p>
+  <strong>Payout:</strong>
+  <%= @campaign.payout %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_campaign_path(@campaign) %> |
+  <%= link_to "Destroy", @campaign, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", campaigns_path %>
+</p>
