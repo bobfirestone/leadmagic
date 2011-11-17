@@ -1,0 +1,15 @@
+common: &common
+  adapter: postgresql
+  username: rbfirestone
+
+development:
+  <<: *common
+  database: leadmagic_development
+
+test:
+  <<: *common
+  database: leadmagic_test
+
+production:
+  <<: *common
+  database: leadmagic_production
