@@ -11,6 +11,7 @@
     <%= f.input :zipcode %>
     <%= f.input :phonenumber, :label => "Phone" %>
     <%= f.input :email %>
+    <%= f.input :notes %>
     <%= f.input :user_id, :as => :hidden, :value => current_user.id %>
     <%= f.input :campaign_id, :as => :hidden, :value => @campaign.id %>
   <% end %>
