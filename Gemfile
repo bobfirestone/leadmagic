@@ -8,6 +8,7 @@ gem 'rails', '3.1.1'
 gem 'pg'
 gem 'nifty-generators'
 gem 'formtastic'
+gem 'client_side_validations'
 gem 'RedCloth'
 gem 'devise'
 

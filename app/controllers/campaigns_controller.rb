@@ -1,10 +1,13 @@
 class CampaignsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @campaigns = Campaign.all
   end
 
   def show
     @campaign = Campaign.find(params[:id])
+    @lead = Lead.new
   end
 
   def new

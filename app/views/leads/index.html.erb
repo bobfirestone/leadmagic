@@ -1,0 +1,25 @@
+<% title "Leads" %>
+
+<table>
+  <tr>
+    <th>Campaign</th>
+    <th>Agent</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>Phone</th>
+  </tr>
+  <% for lead in @leads %>
+    <tr>
+      <td><%= link_to lead.campaign.name, campaign_path(lead.campaign_id) %></td>
+      <td><%= link_to lead.user.name, user_path(lead.user_id) %></td>
+      <td><%= lead.firstname %></td>
+      <td><%= lead.lastname %></td>
+      <td><%= lead.phonenumber %></td>
+      <td><%= link_to "Show", lead %></td>
+      <td><%= link_to "Edit", edit_lead_path(lead) %></td>
+      <td><%= link_to "Destroy", lead, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Lead", new_lead_path %></p>
