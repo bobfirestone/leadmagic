@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117221710) do
+ActiveRecord::Schema.define(:version => 20111118011937) do
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "script"
+    t.integer  "leads_count",     :default => 0
+    t.float    "lead_price"
+    t.float    "payout"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "leads_purchased", :default => 0
+    t.integer  "leads_credited",  :default => 0
+  end
+
+  create_table "leads", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "company"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "phonenumber"
+    t.string   "email"
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
@@ -31,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111117221710) do
     t.string   "address"
     t.boolean  "agent",                                 :default => true
     t.boolean  "admin",                                 :default => false
+    t.integer  "leads_count",                           :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

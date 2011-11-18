@@ -1,0 +1,15 @@
+one:
+  name: MyString
+  email: MyString
+  script: MyText
+  leads_count: 1
+  lead_price: 1.5
+  payout: 1.5
+
+two:
+  name: MyString
+  email: MyString
+  script: MyText
+  leads_count: 1
+  lead_price: 1.5
+  payout: 1.5

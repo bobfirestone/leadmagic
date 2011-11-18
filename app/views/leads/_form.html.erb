@@ -1,0 +1,20 @@
+<h2>New Lead</h2>
+
+<%= semantic_form_for @lead, :validate => true do |f| %>
+  <%= f.inputs do %>  
+    <%= f.input :firstname, :label => "First" %>
+    <%= f.input :lastname, :label => "Last" %>
+    <%= f.input :company %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zipcode %>
+    <%= f.input :phonenumber, :label => "Phone" %>
+    <%= f.input :email %>
+    <%= f.input :user_id, :as => :hidden, :value => current_user.id %>
+    <%= f.input :campaign_id, :as => :hidden, :value => @campaign.id %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>
