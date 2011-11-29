@@ -11,6 +11,7 @@ gem 'formtastic'
 gem 'client_side_validations'
 gem 'RedCloth'
 gem 'devise'
+gem 'stamp'
 
 # Gems used only for assets and not required
 # in production environments by default.
