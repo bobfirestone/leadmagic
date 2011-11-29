@@ -7,6 +7,9 @@
     <%= f.input :lead_price %>
     <%= f.input :payout %>
     <%= f.input :script %>
+    <%= f.input :welcome_email_switch, :label => "Send Welcome Email" %>
+    <%= f.input :email_subject %>
+    <%= f.input :email_text %>
   <% end %>
   <%= f.buttons do %>
     <%= f.commit_button %>

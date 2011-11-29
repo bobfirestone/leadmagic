@@ -11,19 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118162846) do
+ActiveRecord::Schema.define(:version => 20111129063739) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.text     "script"
-    t.integer  "leads_count",     :default => 0
+    t.integer  "leads_count",          :default => 0
     t.float    "lead_price"
     t.float    "payout"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "leads_purchased", :default => 0
-    t.integer  "leads_credited",  :default => 0
+    t.integer  "leads_purchased",      :default => 0
+    t.integer  "leads_credited",       :default => 0
+    t.text     "email_text"
+    t.string   "email_subject"
+    t.boolean  "welcome_email_switch", :default => false
   end
 
   create_table "leads", :force => true do |t|

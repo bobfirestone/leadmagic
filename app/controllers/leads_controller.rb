@@ -16,6 +16,10 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(params[:lead])
     if @lead.save
+      LeadMailer.new_lead(@lead).deliver
+      if @lead.campaign.welcome_email_switch == true
+        LeadMailer.welcome_email(@lead).deliver
+      end
       redirect_to campaign_path(@lead.campaign.id), :notice => "Successfully created lead."
     else
       render :action => 'new'
