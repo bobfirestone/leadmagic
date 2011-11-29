@@ -8,7 +8,9 @@ gem 'rails', '3.1.1'
 gem 'pg'
 gem 'nifty-generators'
 gem 'formtastic'
+gem 'client_side_validations'
 gem 'RedCloth'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,3 +38,4 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+gem "mocha", :group => :test

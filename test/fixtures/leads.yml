@@ -1,0 +1,25 @@
+one:
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  phonenumber: MyString
+  email: MyString
+  user_id: 1
+  campaign_id: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  phonenumber: MyString
+  email: MyString
+  user_id: 1
+  campaign_id: 1

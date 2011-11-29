@@ -1,0 +1,7 @@
+/ - title @campaign.name
+#left
+  %h1= @campaign.name
+  = raw RedCloth.new(@campaign.script).to_html
+  
+#right
+  =render "leads/form"

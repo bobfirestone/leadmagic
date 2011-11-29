@@ -1,0 +1,9 @@
+<% title "Edit Campaign" %>
+<% if current_user.admin? %>
+  <%= render 'form' %>
+
+  <p>
+    <%= link_to "Show", @campaign %> |
+    <%= link_to "View All", campaigns_path %>
+  </p>
+<% end %>
