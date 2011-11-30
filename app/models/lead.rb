@@ -7,7 +7,7 @@ class Lead < ActiveRecord::Base
   default_scope :order => 'leads.created_at DESC'
   
   scope :today, lambda { 
-    where("leads.created_at > ?", Time.now - 10.hours )
+    where("leads.created_at > ?", Time.now - 12.hours )
   }  
   scope :week, lambda { 
     where("leads.created_at >= ?", Time.now - 7.day )
