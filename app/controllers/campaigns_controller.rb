@@ -2,9 +2,11 @@ class CampaignsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.find_all_by_active("t")
+    @pendings = Campaign.find_all_by_pending("t")
+    @completes = Campaign.where("active = ? AND pending = ?", "f", "f")
   end
-
+  
   def show
     @campaign = Campaign.find(params[:id])
     @lead = Lead.new
