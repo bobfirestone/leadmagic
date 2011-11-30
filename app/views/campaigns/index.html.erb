@@ -1,6 +1,7 @@
 <% title "Campaigns" %>
 <% if current_user.admin? %>
   <p><%= link_to "Create New Campaign", new_campaign_path %></p>
+  <h2>Active Campaigns</h2>
 <% end %>
 
 <table>
@@ -35,4 +36,53 @@
   <% end %>
 </table>
 
+<% if current_user.admin? %>
+  <h2>Pending Campaigns</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Purchased</th>
+      <th>Delivered</th>
+      <th>Credited</th>
+      <th>Remaining</th>
+      <th>Deal Value</th>
+    </tr>
+    <% for pending in @pendings %>
+      <tr>
+        <td><%= link_to pending.name, pending %></td>
+        <td><%= link_to "Edit", edit_campaign_path(pending) %></td>
+        <td><%= pending.leads_purchased %></td>
+        <td><%= pending.leads_count %></td>
+        <td><%= pending.leads_credited %></td>
+        <td><%= pending.leads_purchased - pending.leads_count + pending.leads_credited %></td>
+        <td><%= number_to_currency(pending.leads_purchased * pending.lead_price) %>
+      </tr>
+    <% end %>
+  </table>
 
+  <h2>Completed Campaigns</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Purchased</th>
+      <th>Delivered</th>
+      <th>Credited</th>
+      <th>Remaining</th>
+      <th>Deal Value</th>
+    </tr>
+    <% for complete in @completes %>
+      <tr>
+        <td><%= link_to complete.name, complete %></td>
+        <td><%= link_to "Edit", edit_campaign_path(complete) %></td>
+        <td><%= complete.leads_purchased %></td>
+        <td><%= complete.leads_count %></td>
+        <td><%= complete.leads_credited %></td>
+        <td><%= complete.leads_purchased - complete.leads_count + complete.leads_credited %></td>
+        <td><%= number_to_currency(complete.leads_purchased * complete.lead_price) %>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>
