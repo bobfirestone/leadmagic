@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129063739) do
+ActiveRecord::Schema.define(:version => 20111130212001) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20111129063739) do
     t.text     "email_text"
     t.string   "email_subject"
     t.boolean  "welcome_email_switch", :default => false
+    t.integer  "target",               :default => 0
+    t.string   "special"
+    t.text     "notes"
+    t.boolean  "active",               :default => false
+    t.boolean  "pending",              :default => true
+    t.string   "cc"
   end
 
   create_table "leads", :force => true do |t|

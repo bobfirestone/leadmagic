@@ -1,11 +1,17 @@
 <%= semantic_form_for @campaign do |f| %>
   <%= f.inputs do %>
     <%= f.input :name %>
+    <%= f.input :active %>
+    <%= f.input :pending %>
     <%= f.input :email %>
+    <%= f.input :cc, :label => "CC:" %>
     <%= f.input :leads_purchased %>
     <%= f.input :leads_credited %>
     <%= f.input :lead_price %>
     <%= f.input :payout %>
+    <%= f.input :target %>
+    <%= f.input :special, :label => "Special Instructions" %>
+    <%= f.input :notes %>
     <%= f.input :script %>
     <%= f.input :welcome_email_switch, :label => "Send Welcome Email" %>
     <%= f.input :email_subject %>
