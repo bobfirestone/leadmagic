@@ -7,25 +7,30 @@
   <tr>
     <th>Name</th>
     <% if current_user.admin? %>
+      <th></th>
       <th>Purchased</th>
       <th>Delivered</th>
       <th>Credited</th>
       <th>Remaining</th>
       <th>Deal Value</th>
     <% end %>
+    <th>Target</th>
+    <th>Special Instructions</th>
 
   </tr>
   <% for campaign in @campaigns %>
     <tr>
       <td><%= link_to campaign.name, campaign %></td>
       <% if current_user.admin? %>
+        <td><%= link_to "Edit", edit_campaign_path(campaign) %></td>
         <td><%= campaign.leads_purchased %></td>
         <td><%= campaign.leads_count %></td>
         <td><%= campaign.leads_credited %></td>
         <td><%= campaign.leads_purchased - campaign.leads_count + campaign.leads_credited %></td>
         <td><%= number_to_currency(campaign.leads_purchased * campaign.lead_price) %>
-        <td><%= link_to "Edit", edit_campaign_path(campaign) %></td>
       <% end %>
+      <td><%= campaign.target %></td>
+      <td><%= campaign.special %></td>
     </tr>
   <% end %>
 </table>
