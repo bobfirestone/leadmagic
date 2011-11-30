@@ -1,4 +1,4 @@
-%h1 Users#index
+%h1 Users
 
 %table
   %tr
@@ -10,9 +10,9 @@
   - for user in @users 
     %tr
       %td= link_to user.name, user
-      %td (Num Here)
-      %td (Num Here)
-      %td (Num Here)
+      %td= user.leads.today.size
+      %td= user.leads.week.size
+      %td= user.leads.month.size
       
 -if user_signed_in?
   =link_to "Sign Out", destroy_user_session_path

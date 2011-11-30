@@ -8,6 +8,7 @@ Leadmagic::Application.routes.draw do
 
   devise_for :users do
     match "signout" => "devise/sessions#destroy", :as => :signout
+    match "msc/sign_up" => "devise/registrations#new", :as => :signup
   end
   resources :users, :only => [:index, :show]
 

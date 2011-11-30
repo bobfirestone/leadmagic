@@ -7,6 +7,7 @@
     <th>First</th>
     <th>Last</th>
     <th>Phone</th>
+    <th>Created At</th>
   </tr>
   <% for lead in @leads %>
     <tr>
@@ -15,6 +16,7 @@
       <td><%= lead.firstname %></td>
       <td><%= lead.lastname %></td>
       <td><%= lead.phonenumber %></td>
+      <td><%= lead.created_at.stamp("12/13/14 8:59 am") %></td>
       <td><%= link_to "Show", lead %></td>
       <td><%= link_to "Edit", edit_lead_path(lead) %></td>
       <td><%= link_to "Destroy", lead, :confirm => 'Are you sure?', :method => :delete %></td>
