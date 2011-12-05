@@ -56,7 +56,11 @@
         <td><%= pending.leads_count %></td>
         <td><%= pending.leads_credited %></td>
         <td><%= pending.leads_purchased - pending.leads_count + pending.leads_credited %></td>
-        <td><%= number_to_currency(pending.leads_purchased * pending.lead_price) %>
+        <%= if pending.leads_purchased.nil? || pending.lead_price.nil %>
+          <td>Missing Data</td>
+        <% else %>
+          <td><%= number_to_currency(pending.leads_purchased * pending.lead_price) %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
@@ -80,7 +84,12 @@
         <td><%= complete.leads_count %></td>
         <td><%= complete.leads_credited %></td>
         <td><%= complete.leads_purchased - complete.leads_count + complete.leads_credited %></td>
-        <td><%= number_to_currency(complete.leads_purchased * complete.lead_price) %>
+        <%= if pending.leads_purchased.nil? || pending.lead_price.nil %>
+          <td>Missing Data</td>
+        <% else %>
+          <td><%= number_to_currency(complete.leads_purchased * complete.lead_price) %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </table>
