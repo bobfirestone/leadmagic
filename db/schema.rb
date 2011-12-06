@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130212001) do
+ActiveRecord::Schema.define(:version => 20111206230302) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(:version => 20111130212001) do
     t.boolean  "active",               :default => false
     t.boolean  "pending",              :default => true
     t.string   "cc"
+    t.integer  "group_campaign_id"
+  end
+
+  create_table "group_campaigns", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.text     "html_body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "cc"
+    t.text     "script"
   end
 
   create_table "leads", :force => true do |t|
@@ -50,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20111130212001) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
+    t.string   "best_time"
   end
 
   create_table "users", :force => true do |t|

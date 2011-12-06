@@ -29,6 +29,7 @@
         Go to: 
         =link_to "Campaigns", campaigns_path
         -if current_user.admin?
+          =link_to "Group Campaigns", group_campaigns_path
           |
           =link_to "Users", users_path
           |

@@ -1,0 +1,12 @@
+-if current_user.admin?
+  =link_to "Add Group", new_group_campaign_path
+  %br
+  %br
+  %table
+    -for group in @groups
+      %tr
+        %td= link_to group.name, group
+        %td= link_to "(edit)", edit_group_campaign_path(group)
+
+-else
+  %h3 Nothing To See Here. Move Along!!!

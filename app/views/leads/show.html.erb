@@ -38,15 +38,16 @@
 </p>
 <p>
   <strong>User:</strong>
-  <%= @lead.user_id %>
+  <%= @lead.user.name %>
 </p>
 <p>
   <strong>Campaign:</strong>
-  <%= @lead.campaign_id %>
+  <%= @lead.campaign.name %>
 </p>
-
+<% if current_user.admin? %>
 <p>
   <%= link_to "Edit", edit_lead_path(@lead) %> |
   <%= link_to "Destroy", @lead, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", leads_path %>
 </p>
+<% end %>

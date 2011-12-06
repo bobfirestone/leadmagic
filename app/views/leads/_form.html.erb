@@ -1,4 +1,4 @@
-<h2>New Lead</h2>
+<h3>New Lead</h3>
 
 <%= semantic_form_for @lead, :validate => true do |f| %>
   <%= f.inputs do %>  
@@ -11,6 +11,7 @@
     <%= f.input :zipcode %>
     <%= f.input :phonenumber, :label => "Phone" %>
     <%= f.input :email %>
+    <%= f.input :best_time %>
     <%= f.input :notes, :input_html => { :class => 'autogrow', :rows => 4  } %>
     <%= f.input :user_id, :as => :hidden, :value => current_user.id %>
     <%= f.input :campaign_id, :as => :hidden, :value => @campaign.id %>
