@@ -20,4 +20,14 @@ class LeadMailer < ActionMailer::Base
     end
   end
   
+  def group_email(lead)
+    @lead = lead
+    @group = @lead.campaign.group_campaign
+    if lead.campaign.group_campaign.cc.nil?
+      mail(:to => "#{lead.firstname} #{lead.lastname} <#{lead.email}>", :subject => "#{lead.campaign.group_campaign.subject}")
+    else
+      mail(:to => "#{lead.firstname} #{lead.lastname} <#{lead.email}>", :cc => "#{lead.campaign.group_campaign.cc}", :subject => "#{lead.campaign.group_campaign.subject}")
+    end
+  end
+  
 end

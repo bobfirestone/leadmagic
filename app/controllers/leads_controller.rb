@@ -18,9 +18,12 @@ class LeadsController < ApplicationController
     if @lead.save
       if @lead.campaign.active?
         LeadMailer.new_lead(@lead).deliver
-          if @lead.campaign.welcome_email_switch == true
-            LeadMailer.welcome_email(@lead).deliver
-          end
+        if @lead.campaign.group_campaign_id.present?
+          LeadMailer.group_email(@lead).deliver
+        # Need if statement check for group_campaign
+        else @lead.campaign.welcome_email_switch == true
+          LeadMailer.welcome_email(@lead).deliver
+        end
       end
       redirect_to campaign_path(@lead.campaign.id), :notice => "Successfully created lead."
     else
