@@ -1,8 +1,14 @@
 Leadmagic::Application.routes.draw do
+  get "group_campaigns/index"
+
+  get "group_campaigns/show"
+
+  get "group_campaigns/edit"
+
   resources :leads
 
   resources :campaigns
-
+  resources :group_campaigns
   resources :dashboards
 
 

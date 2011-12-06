@@ -1,0 +1,19 @@
+%h1
+  = @group_campaign.name
+  = link_to "(edit group)", edit_group_campaign_path(@group_campaign)
+%p
+  %b Script:
+  = @group_campaign.script
+%p
+  %b Subject:
+  = @group_campaign.subject
+
+%p
+  %b CC:
+  = @group_campaign.cc
+%p
+  %b Body:
+  = @group_campaign.body
+%p
+  %b HTML Body:
+  = @group_campaign.html_body
