@@ -1,7 +1,14 @@
 %h1= @group_campaign.name
 %p
+  %b Script:
+  = @group_campaign.script
+%p
   %b Subject:
   = @group_campaign.subject
+
+%p
+  %b CC:
+  = @group_campaign.cc
 %p
   %b Body:
   = @group_campaign.body

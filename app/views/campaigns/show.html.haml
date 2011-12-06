@@ -1,7 +1,10 @@
 / - title @campaign.name
 #left
   %h1= @campaign.name
-  = raw RedCloth.new(@campaign.script).to_html
+  -if @campaign.group_campaign_id.nil?
+    = raw RedCloth.new(@campaign.script).to_html
+  -else
+    = raw RedCloth.new(@campaign.group_campaign.script).to_html
   
 #right
   =render "leads/form"

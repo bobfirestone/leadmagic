@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206011430) do
+ActiveRecord::Schema.define(:version => 20111206213334) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20111206011430) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "cc"
+    t.text     "script"
   end
 
   create_table "leads", :force => true do |t|
