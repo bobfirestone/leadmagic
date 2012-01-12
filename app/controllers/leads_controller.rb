@@ -1,3 +1,5 @@
+require 'csv'
+
 class LeadsController < ApplicationController
   before_filter :authenticate_user!
   
@@ -49,4 +51,45 @@ class LeadsController < ApplicationController
     @lead.destroy
     redirect_to leads_url, :notice => "Successfully destroyed lead."
   end
+
+  def memberlist
+    @leads = Lead.all
+    @outfile = "leadmagic_new_members_" + Time.now.strftime("%m-%d-%Y") + ".csv"
+  
+    csv_data = CSV::generate do |csv|
+      csv << [
+      "Last Name",
+      "First Name",
+      "Email",
+      "Phone Number",
+      "Company",
+      "Address",
+      "City",
+      "State",
+      "Zip",
+      "Ambassador",
+      "Campaign"
+      ]
+      @leads.each do |lead|
+        csv << [
+        lead.lastname,
+        lead.firstname,
+        lead.email,
+        lead.phonenumber,
+        lead.company,
+        lead.address,
+        lead.city,
+        lead.state,
+        lead.zipcode,
+        lead.user.name,
+        lead.campaign.name
+        ]
+      end
+    end
+    send_data csv_data, :type => 'text/csv; charset=iso-8859-1; header=present',
+                        :disposition => "attachment; filename=#{@outfile}"
+
+    flash[:notice] = "Export complete!"
+  end
 end
+

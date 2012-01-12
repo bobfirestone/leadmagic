@@ -9,7 +9,3 @@ development:
 test:
   <<: *common
   database: leadmagic_test
-
-production:
-  <<: *common
-  database: leadmagic_production

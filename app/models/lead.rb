@@ -6,6 +6,10 @@ class Lead < ActiveRecord::Base
   
   default_scope :order => 'leads.created_at DESC'
   
+  # scope :member, lambda { 
+  #   where("@leads.campaign.member == ?", true )
+  # }  
+
   scope :today, lambda { 
     where("leads.created_at > ?", Time.now - 12.hours )
   }  

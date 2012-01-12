@@ -6,7 +6,7 @@ Leadmagic::Application.routes.draw do
   get "group_campaigns/edit"
 
   resources :leads
-
+  match '/memberlist' => 'leads#memberlist', :as => :memberlist
   resources :campaigns
   resources :group_campaigns
   resources :dashboards
