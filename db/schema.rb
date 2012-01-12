@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206230302) do
+ActiveRecord::Schema.define(:version => 20111226164159) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20111206230302) do
     t.boolean  "pending",              :default => true
     t.string   "cc"
     t.integer  "group_campaign_id"
+    t.boolean  "member",               :default => false
   end
 
   create_table "group_campaigns", :force => true do |t|
