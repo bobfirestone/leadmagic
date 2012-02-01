@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226164159) do
+ActiveRecord::Schema.define(:version => 20120201222705) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.text     "script"
     t.integer  "leads_count",          :default => 0
-    t.float    "lead_price"
-    t.float    "payout"
+    t.float    "lead_price",           :default => 0.0
+    t.float    "payout",               :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "leads_purchased",      :default => 0
