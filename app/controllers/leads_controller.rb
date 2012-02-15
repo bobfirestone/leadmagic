@@ -23,7 +23,7 @@ class LeadsController < ApplicationController
         if @lead.campaign.group_campaign_id.present?
           LeadMailer.group_email(@lead).deliver
         # Need if statement check for group_campaign
-        else @lead.campaign.welcome_email_switch == true
+        elsif @lead.campaign.welcome_email_switch == true
           LeadMailer.welcome_email(@lead).deliver
         end
       end
